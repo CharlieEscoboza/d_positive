@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Electron app</title>
+</head>
+<body>
+	<div id="react-root"></div>
+	<script type="text/javascript">
+		var buildPath = '../build/bundle.js';
+
+		if (process !== undefined && process.env.ENVIRONMENT === 'DEV') {
+			buildPath = 'http://localhost:8080/build/bundle.js';
+
+			webpackDevServerTag = document.createElement('script');
+			webpackDevServerTag.src = 'http://localhost:8080/webpack-dev-server.js';
+			document.getElementsByTagName('body')[0].appendChild(webpackDevServerTag);	
+		}
+
+		bundleTag = document.createElement('script');
+		bundleTag.src = buildPath;
+		document.getElementsByTagName('body')[0].appendChild(bundleTag);	
+	</script>
+</body>
+</html>
