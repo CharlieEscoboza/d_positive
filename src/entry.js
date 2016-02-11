@@ -1,11 +1,12 @@
 'use strict';
+require('../statics/sass/main.scss');
 
 import React from 'react';
 import ReactDom from 'react-dom';
 
 class App extends React.Component {
 
-	constructor(props){
+	constructor(props) {
 		super(props);
 		this._updateCounter = this._updateCounter.bind(this);
 		this.state = { counter: 0 };
